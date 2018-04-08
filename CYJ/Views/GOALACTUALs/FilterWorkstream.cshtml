@@ -1,0 +1,88 @@
+﻿@model IEnumerable<CYJ.Models.GOALACTUAL>
+
+@{
+    ViewBag.Title = "Goals";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Goals</h2>
+
+<p>
+    @Html.ActionLink("Create a New Goal", "Create") |
+    @Html.ActionLink("Back to all Goals", "Index")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Filter by Workstream: @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.QUARTEROPTION.quarterOpt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actualGoal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.goalValue)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.fiscalYear)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.SUBCATEGORY.subcategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CATEGORY.categoryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WORKSTREAM.workstreamName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TEAM.TeamName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QUARTEROPTION.quarterOpt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.actualGoal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.goalValue)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.fiscalYear)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.SUBCATEGORY.subcategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CATEGORY.categoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WORKSTREAM.workstreamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEAM.TeamName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.goalActualID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.goalActualID })
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.goalID })*@
+            </td>
+        </tr>
+    }
+
+</table>

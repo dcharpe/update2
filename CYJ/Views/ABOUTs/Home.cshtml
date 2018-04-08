@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CYJ.Models.ABOUT>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+
+<!doctype html>
+<html lang="en">
+
+<body>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header" style="BACKGROUND-COLOR:#BCC65C">
+                    <h4 class="title">ABOUT THE DASHBOARD</h4>
+
+                </div>
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <table class="table">
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AboutInfo)
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card card-nav-tabs" style="width: 50rem;">
+                                <div class="card-header" style="BACKGROUND-COLOR:#BCC65C">
+                                    CONTENT LINKS
+                                </div>
+                                <ul style="font-size:20px">
+                                    <li class="margin" style="color:black">@Html.ActionLink("Home", "Index", "Home")</li>
+                                    <li class="margin" color:black>@Html.ActionLink("Service Delivery", "Index", "Home")</li>
+                                    <li class="margin" color:black>@Html.ActionLink("Corps Member Experience", "Index", "Home")</li>
+                                    <li class="margin" color:black>@Html.ActionLink("External Affairs", "Index", "Home")</li>
+                                    <li class="margin" color:black>@Html.ActionLink("Revenue", "Index", "Home")</li>
+                                    <li class="margin" color:black>@Html.ActionLink("OPEX", "Index", "Home")</li>
+                                    <li class="margin" color:black>@Html.ActionLink("RAD", "Index", "Home")</li>
+                                </ul>
+
+                            </div>
+                        <br />
+
+                    </div>
+                    <br>
+                    <br>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+        </div>
+</body>
+
+</html>

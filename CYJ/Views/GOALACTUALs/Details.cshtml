@@ -1,0 +1,92 @@
+﻿@model CYJ.Models.GOALACTUAL
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>View Saved Goal And Actual</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.goalValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.goalValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actualGoal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actualGoal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CATEGORY.categoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CATEGORY.categoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FISCALYEAR.fy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FISCALYEAR.fy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QUARTEROPTION.quarterOpt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QUARTEROPTION.quarterOpt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SUBCATEGORY.subcategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SUBCATEGORY.subcategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TEAM.TeamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEAM.TeamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WORKSTREAM.workstreamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WORKSTREAM.workstreamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WORKSTREAM1.workstreamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WORKSTREAM1.workstreamName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.goalActualID }) 
+    <div class="col-md-3">
+        <input type="button" class="btn btn-info" value="Back to List" onclick="@("window.location.href='" + @Url.Action("Index", "goalactuals") + "'");" />
+    </div>
+</p>

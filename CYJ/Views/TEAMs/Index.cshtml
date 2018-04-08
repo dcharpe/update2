@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CYJ.Models.TEAM>
+
+@{
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Available Teams</h2>
+
+<p>
+    <div class="col-md-3">
+        <input type="button" class="btn btn-info" value="ADD A NEW TEAM" onclick="@("window.location.href='" + @Url.Action("Create", "Teams") + "'");" />
+    </div>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TeamID }) |
+                @Html.ActionLink("More Info", "Details", new { id = item.TeamID }) |
+                @Html.ActionLink("Deactivate", "Delete", new { id = item.TeamID })
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<div class="col-md-3">
+    <input type="button" class="btn btn-info" value="Back to Admin" onclick="@("window.location.href='" + @Url.Action("Admin", "Home") + "'");" />
+</div>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CYJ.Models.FISCALYEAR>
+
+@{
+    ViewBag.Title = "FY";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Available Fiscal Years</h2>
+
+<p>
+    <div class="col-md-3">
+        <input type="button" class="btn btn-info" value="ADD A NEW FISCAL YEAR" onclick="@("window.location.href='" + @Url.Action("Create", "fiscalyears") + "'");" />
+    </div>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fy)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fy)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.fiscalYearID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.fiscalYearID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.fiscalYearID })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="col-md-3">
+    <input type="button" class="btn btn-info" value="Back to Admin" onclick="@("window.location.href='" + @Url.Action("Admin", "Home") + "'");" />
+</div>

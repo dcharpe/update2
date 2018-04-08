@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CYJ.Models.SUBCATEGORY>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Available Subcatorgies</h2>
+
+<p>
+    <div class="col-md-3">
+        <input type="button" class="btn btn-info" value="ADD A NEW SUBCATEGORY" onclick="@("window.location.href='" + @Url.Action("Create", "Subcategories") + "'");" />
+    </div>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.subcategoryName)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.subcategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.subcategoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.subcategoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.subcategoryID })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="col-md-3">
+    <input type="button" class="btn btn-info" value="Back to Admin" onclick="@("window.location.href='" + @Url.Action("Admin", "Home") + "'");" />
+</div>

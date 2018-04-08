@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CYJ.Models.WORKSTREAM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Available Workstreams</h2>
+
+<p>
+    <div class="col-md-3">
+        <input type="button" class="btn btn-info" value="ADD A NEW WORKSTREAM" onclick="@("window.location.href='" + @Url.Action("Create", "Workstreams") + "'");" />
+    </div>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.workstreamName)
+        </th>
+      @*<th>
+            @Html.DisplayNameFor(model => model.CATEGORY.categoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SUBCATEGORY.subcategoryName)
+        </th>*@
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.workstreamName)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CATEGORY.categoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SUBCATEGORY.subcategoryName)
+        </td>*@
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.workstreamID }) |
+            @Html.ActionLink("More Info", "Details", new { id=item.workstreamID }) |
+            @Html.ActionLink("Deactivate", "Delete", new { id=item.workstreamID })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="col-md-3">
+    <input type="button" class="btn btn-info" value="Back to Admin" onclick="@("window.location.href='" + @Url.Action("Admin", "Home") + "'");" />
+</div>

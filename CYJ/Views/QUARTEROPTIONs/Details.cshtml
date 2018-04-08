@@ -1,0 +1,32 @@
+﻿@model CYJ.Models.QUARTEROPTION
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>View Saved Period</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+      
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quarterOpt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quarterOpt)
+        </dd>
+
+      
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.quarteroptionID }) 
+    <div class="col-md-3">
+        <input type="button" class="btn btn-info" value="Back to List" onclick="@("window.location.href='" + @Url.Action("Index", "Quarteroptions") + "'");" />
+    </div>
+</p>

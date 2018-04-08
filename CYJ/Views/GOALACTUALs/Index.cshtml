@@ -1,0 +1,199 @@
+﻿@model IEnumerable<CYJ.Models.GOALACTUAL>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<!doctype html>
+
+
+
+<center>
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header" style="BACKGROUND-COLOR:#BCC65C">
+                    <h4 class="title"> CURRENT GOALS AND ACTUALS</h4>
+                </div>
+                <div class="card-content">
+
+                    <ul class="nav nav-pills nav-pills-icons nav-align-center" role="tablist">
+                        <!--
+                            color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                        -->
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#dashboard-1" role="tab" data-toggle="tab" style="BACKGROUND-COLOR:#E0E0E0">
+                                <i class="material-icons">dashboard</i>
+                                ALL WORKSTREAMS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#schedule-1" role="tab" data-toggle="tab"style="BACKGROUND-COLOR:#E0E0E0">
+                                <i class="material-icons">school</i>
+                                SERVICE DELIVERY
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tasks-1" role="tab" data-toggle="tab"style="BACKGROUND-COLOR:#E0E0E0">
+                                <i class="material-icons">group</i>
+                                CORP MEMBER EXPERIENCE
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tasks-1" role="tab" data-toggle="tab"style="BACKGROUND-COLOR:#E0E0E0">
+                                <i class="material-icons">event</i>
+                                EXTERNAL AFFAIRS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tasks-1" role="tab" data-toggle="tab"style="BACKGROUND-COLOR:#E0E0E0">
+                                <i class="material-icons">local_atm</i>
+                                REVENUE
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tasks-1" role="tab" data-toggle="tab"style="BACKGROUND-COLOR:#E0E0E0">
+                                <i class="material-icons">settings</i>
+                                OPEX
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tasks-1" role="tab" data-toggle="tab"style="BACKGROUND-COLOR:#E0E0E0">
+                                <i class="material-icons">assignment</i>
+                                RAD
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content tab-space">
+                        <div class="tab-pane active" id="dashboard-1">
+                            @using (Html.BeginForm())
+                            {
+                                <p>
+                                    <input type="button" class="btn btn-info" value="ADD A NEW GOAL & ACTUAL" Onclick="@("window.location.href='" + @Url.Action("Create", "GOALACTUALS") + "'");" /> |
+
+                                </p>
+                                @*@<p>
+                                        Find by Period: @Html.TextBox("searchString")
+                                        <input type="submit" value="Search" />
+                                    </p>*@
+                            }
+
+                            <input id="myInput" type="text" placeholder="Search..">
+                            <table class="table">
+                                <tr>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.FISCALYEAR.fy)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.QUARTEROPTION.quarterOpt)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.goalValue)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.actualGoal)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TEAM.TeamName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.WORKSTREAM.workstreamName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CATEGORY.categoryName)
+                                    </th>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SUBCATEGORY.subcategoryName)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                                <tbody id="myTable">
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FISCALYEAR.fy)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.QUARTEROPTION.quarterOpt)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.goalValue)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.actualGoal)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TEAM.TeamName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.WORKSTREAM.workstreamName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CATEGORY.categoryName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SUBCATEGORY.subcategoryName)
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary btn-fab btn-fab-mini btn-round" type="button" style="background-color:#FBAE3B" title="Edit"
+                                                        onclick="location.href='@Url.Action("Edit", new { id = item.goalActualID })'">
+                                                    <i class="material-icons ">create</i>
+                                                </button>
+                                                <button class="btn btn-primary btn-fab btn-fab-mini btn-round" type="button" style="background-color:#F37158" title="Delete"
+                                                        onclick="location.href='@Url.Action("Delete", new { id = item.goalActualID })'">
+                                                    <i class="material-icons">delete</i>
+                                                </button>
+
+
+                                            </td>
+                                        </tr>
+                                    }
+                                    </tbody>
+
+</table>
+
+
+
+
+
+                        </div>
+                        <div class="tab-pane" id="schedule-1">
+                          
+                        </div>
+                        <div class="tab-pane" id="tasks-1">
+                        </div>
+                    </div>
+                   
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <input type="button" class="btn btn-info" value="Back To Admin" Onclick="@("window.location.href='" + @Url.Action("Admin", "Home") + "'");" />
+
+    </center>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>

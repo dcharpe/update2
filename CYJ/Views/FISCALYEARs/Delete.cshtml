@@ -1,0 +1,35 @@
+﻿@model CYJ.Models.FISCALYEAR
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Deactivating Fiscal Year</h2>
+
+<h3>Are you sure you want to deactivate this?</h3>
+<div>
+    <h4>FISCALYEAR</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fy)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deactivate" class="btn btn-default" /> |
+            <div class="col-md-3">
+                <input type="button" class="btn btn-info" value="Back to List" onclick="@("window.location.href='" + @Url.Action("Index", "fiscalyears") + "'");" />
+            </div>
+        </div>
+    }
+</div>

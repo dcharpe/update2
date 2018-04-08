@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CYJ.Models.POST>
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+<style>
+    .margin {
+        margin:10px;
+    }
+    li:hover{
+        color:red;
+        text-decoration:underline;
+    }
+</style>
+<div class="left">
+    <h1 class="pagetitle"><text style="color:#3ec2cf"> IMPACT </text>DASHBOARD</h1>
+
+    <div class="row">
+
+        <div class="left">
+            <div class="aboutcolumn">
+                <h2 class="aboutheader" style="color:white;">ABOUT</h2>
+                <table class="table" style="font-size:20px;">
+                    @foreach (var item in Model)
+                      {
+                    <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.postTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.postContent)
+                    </td>
+                    </tr>
+                }
+                </table>
+                </div>
+                <div class="linkscolumn">
+                    <h2 class="linksheader" style="color:white">CONTENT LINKS</h2>
+                    <ul style="font-size:20px;margin:20px;">
+                        <li class="margin">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="margin">@Html.ActionLink("Service Delivery", "Index", "Home")</li>
+                        <li class="margin">@Html.ActionLink("Corps Member Experience", "Index", "Home")</li>
+                        <li class="margin">@Html.ActionLink("External Affairs", "Index", "Home")</li>
+                        <li class="margin">@Html.ActionLink("Revenue", "Index", "Home")</li>
+                        <li class="margin">@Html.ActionLink("OPEX", "Index", "Home")</li>
+                        <li class="margin">@Html.ActionLink("RAD", "Index", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

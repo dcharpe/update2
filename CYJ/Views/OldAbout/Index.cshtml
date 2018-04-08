@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CYJ.Models.POST>
+
+@{
+        ViewBag.Title = "About";
+        Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2 class="aboutheader" style="color:white;">ABOUT</h2>
+<br />
+<p>
+    @Html.ActionLink("Write a Post", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.postTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postContent)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.postTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.postContent)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.postID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.postID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.postID })
+            </td>
+        </tr>
+    }
+
+</table>

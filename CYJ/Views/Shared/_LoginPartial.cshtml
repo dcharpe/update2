@@ -1,0 +1,26 @@
+﻿
+@if (Request.IsAuthenticated)
+{
+    <text>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-text">
+                <i class="material-icons md-36">person_pin</i> Hello, @User.Identity.Name! |
+
+
+
+                <input type="button" class="btn btn-danger btn-round btn-sm" value="SIGN OUT" onclick="location.href='@Url.Action("SignOut", "Account")'" />
+
+            </li>
+        </ul>
+    </text>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <i class="material-icons md-36">person_pin</i>
+        <li style="color:black">@Html.ActionLink("SIGN IN", "SignIn", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+
+
+    </ul>
+}

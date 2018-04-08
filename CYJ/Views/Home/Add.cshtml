@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+
+<body>
+<div class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header" style="BACKGROUND-COLOR:#BCC65C">
+                    <h4 class="title">ADD A NEW ITEM</h4>
+
+                </div>
+                <div class="card-content">
+
+                    <center>
+                        <div class="row">
+                        <div class="col-md-4">
+                            <div class="card card-pricing card-raised">
+                                <div class="card-content">
+                                    <div class="icons">
+                                        <i class="material-icons" style="font-size: 100px; color:#bedde0">people</i>
+                                    </div>
+                                    <div></div>
+                                    <input type="button" class="btn" style="background-color:#3EC2CF"value="ADD TEAM"  onclick="@("window.location.href='" + @Url.Action("Create", "TEAMs") + "'");" />
+                        
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="card card-pricing card-raised">
+                                <div class="card-content">
+                                    <div class="icons">
+                                        <i class="material-icons"  style="font-size: 100px; color:#bedde0">work</i>
+                                    </div>
+                                    <input type="button" class="btn" style="background-color:#3EC2CF" value="ADD WORKSTREAM" onclick="@("window.location.href='" + @Url.Action("Create", "WORKSTREAMs") + "'");" />
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card card-pricing card-raised">
+                                <div class="card-content">
+                                    <div class="icons">
+                                        <i class="material-icons"  style="font-size: 100px; color:#bedde0">label</i>
+                                    </div>
+                                    <input type="button" class="btn" style="background-color:#3EC2CF" value="ADD CATEGORY"  onclick="@("window.location.href='" + @Url.Action("Create", "CATEGORies") + "'");" />
+
+
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-raised">
+                                    <div class="card-content">
+                                        <div class="icons">
+                                            <i class="material-icons"  style="font-size: 100px; color:#bedde0">label_outline</i>
+                                        </div>
+                                        <input type="button" class="btn" style="background-color:#3EC2CF" value="ADD SUBCATEGORY" onclick="@("window.location.href='" + @Url.Action("Create", "SUBCATEGORies") + "'");" />
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-raised">
+                                    <div class="card-content">
+                                        <div class="icons">
+                                            <i class="material-icons"  style="font-size: 100px; color:#bedde0">date_range</i>
+                                        </div>
+                                        <input type="button" class="btn" style="background-color:#3EC2CF" value="ADD FISCAL YEAR"  onclick="@("window.location.href='" + @Url.Action("Create", "FISCALYEARs") + "'");" />
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-raised">
+                                    <div class="card-content">
+                                        <div class="icons">
+                                            <i class="material-icons"  style="font-size: 100px; color:#bedde0">timer</i>
+                                        </div>
+                                        <input type="button"class="btn" style="background-color:#3EC2CF" value="ADD PERIOD" onclick="@("window.location.href='" + @Url.Action("Create", "QUARTEROPTIONs") + "'");" />
+
+                            
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+
+
+
+
+
+
+
+

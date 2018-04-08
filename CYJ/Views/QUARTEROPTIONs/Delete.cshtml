@@ -1,0 +1,34 @@
+﻿@model CYJ.Models.QUARTEROPTION
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Deactivating Period</h2>
+
+<h3>Are you sure you want to deactivate this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.quarterOpt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quarterOpt)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deactivate" class="btn btn-default" /> |
+            <div class="col-md-3">
+                <input type="button" class="btn btn-info" value="Back to List" onclick="@("window.location.href='" + @Url.Action("Index", "quarteroptions") + "'");" />
+            </div>
+        </div>
+    }
+</div>

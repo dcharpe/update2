@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+<!doctype html>
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header" style="BACKGROUND-COLOR:#BCC65C">
+                <h4 class="title">ADMIN</h4>
+
+            </div>
+            <div class="card-content">
+
+                <center>
+
+                    <div class="col-md-4">
+                        <div class="card card-pricing card-raised">
+                            <div class="card-content">
+                                <div class="icons">
+                                    <i class="material-icons" style="font-size: 100px; color:#bedde0">add_circle</i>
+                                </div>
+                                <input type="button" class="btn" style="background-color:#3EC2CF" value="ADD A NEW ITEM" Onclick="@("window.location.href='" + @Url.Action("Add", "Home") + "'");" />
+
+                                <p class="card-description">Add a new team, workstream, goal category, etc.</p>
+                              
+                            </div>
+                        </div>
+                         </div>
+
+
+                    <div class="col-md-4">
+                        <div class="card card-pricing card-raised">
+                            <div class="card-content">
+                                <div class="icons">
+                                    <i class="material-icons" style="font-size: 100px; color:#bedde0">update</i>
+                                </div>
+                                <input type="button" class="btn" style="background-color:#3EC2CF" value="UPDATE A GOAL" onclick="@("window.location.href='" + @Url.Action("Index", "GOALACTUALs") + "'");" />
+
+                                <p class="card-description">Edit and delete current goal values and actuals.</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-pricing card-raised">
+                            <div class="card-content">
+                                <div class="icons">
+                                    <i class="material-icons"style="font-size: 100px; color:#bedde0">info</i>
+                                </div>
+                                <input type="button" class="btn" style="background-color:#3EC2CF" value="EDIT ABOUT" onclick="@("window.location.href='" + @Url.Action("Index", "ABOUTs") + "'");" />
+
+                                <p class="card-description">Add a new post or edit an entry on the about page.</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <br /> <br /> <br /> <br /> <br />
+
+
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+

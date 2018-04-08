@@ -1,0 +1,35 @@
+﻿@model CYJ.Models.FISCALYEAR
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>View Saved Fiscal Year</h2>
+
+<div>
+    <h4>FISCALYEAR</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fy)
+        </dd>
+
+       
+
+        <dd>
+            @Html.DisplayFor(model => model.QUARTEROPTION.quarterOpt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.fiscalYearID }) 
+    <div class="col-md-3">
+        <input type="button" class="btn btn-info" value="Back to List" onclick="@("window.location.href='" + @Url.Action("Index", "Fiscalyears") + "'");" />
+    </div>
+</p>

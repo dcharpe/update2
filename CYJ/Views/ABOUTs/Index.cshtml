@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CYJ.Models.ABOUT>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+<!doctype html>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header" style="BACKGROUND-COLOR:#BCC65C">
+                <h4 class="title">EDIT THE ABOUT PAGE</h4>
+
+            </div>
+            <div class="card-content">
+                <center>
+                    <p>
+                        @Html.ActionLink("Create New Post", "Create")
+                    </p>
+                    <table class="table">
+                        
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AboutInfo)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.AboutID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.AboutID })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
