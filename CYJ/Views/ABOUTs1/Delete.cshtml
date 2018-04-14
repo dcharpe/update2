@@ -1,0 +1,41 @@
+﻿@model CYJ.Models.ABOUT
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+
+}
+
+<h2>Delete Post</h2>
+
+<h3>Are you sure you want to delete this post?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.aboutHeader)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aboutHeader)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aboutBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aboutBody)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" />
+        <div>
+            <input type="button" class="btn" style="background-color:#3EC2CF" value="BACK TO ABOUT LIST" Onclick="@("window.location.href='" + @Url.Action("Index", "ABOUTs1") + "'");" />
+        </div>
+    </div>
+    }
+</div>

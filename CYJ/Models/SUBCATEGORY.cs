@@ -13,29 +13,27 @@ namespace CYJ.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class SUBCATEGORY
+    public partial class SUBCATEGORy
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SUBCATEGORY()
+        public SUBCATEGORy()
         {
-            this.CHARTs = new HashSet<CHART>();
-            this.GOALACTUALs = new HashSet<GOALACTUAL>();
-            this.WORKSTREAMs = new HashSet<WORKSTREAM>();
+            this.CHARTS = new HashSet<CHART>();
+            this.GOALACTUALS = new HashSet<GOALACTUAL>();
+            this.WORKSTREAMS = new HashSet<WORKSTREAM>();
         }
-
-        [Display(Name = "Subcategory")]
+    
         public int subcategoryID { get; set; }
         [Display(Name = "Subcategory")]
         public string subcategoryName { get; set; }
-        [Display(Name = "Category")]
         public Nullable<int> categoryID { get; set; }
     
-        public virtual CATEGORY CATEGORY { get; set; }
+        public virtual CATEGORy CATEGORy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHART> CHARTs { get; set; }
+        public virtual ICollection<CHART> CHARTS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GOALACTUAL> GOALACTUALs { get; set; }
+        public virtual ICollection<GOALACTUAL> GOALACTUALS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WORKSTREAM> WORKSTREAMs { get; set; }
+        public virtual ICollection<WORKSTREAM> WORKSTREAMS { get; set; }
     }
 }

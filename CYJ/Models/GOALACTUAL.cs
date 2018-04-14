@@ -18,14 +18,13 @@ namespace CYJ.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GOALACTUAL()
         {
-            this.CHARTs = new HashSet<CHART>();
+            this.CHARTS = new HashSet<CHART>();
         }
-
-        [Display(Name = "Goal Actual")]
+    
         public int goalActualID { get; set; }
-        [Display(Name = "Goal Value")]
+        [Display(Name = "Goal")]
         public string goalValue { get; set; }
-        [Display(Name = "Actual Value")]
+        [Display(Name = "Actual")]
         public string actualGoal { get; set; }
         [Display(Name = "Team")]
         public Nullable<int> teamID { get; set; }
@@ -36,18 +35,19 @@ namespace CYJ.Models
         [Display(Name = "Subcategory")]
         public Nullable<int> subcategoryID { get; set; }
         [Display(Name = "Fiscal Year")]
+        public Nullable<int> fiscalYear1 { get; set; }
+        [Display(Name = "Fiscal Year")]
         public Nullable<int> fiscalYearID { get; set; }
         [Display(Name = "Period")]
         public Nullable<int> quarteroptionID { get; set; }
     
-        public virtual CATEGORY CATEGORY { get; set; }
+        public virtual CATEGORy CATEGORy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHART> CHARTs { get; set; }
+        public virtual ICollection<CHART> CHARTS { get; set; }
         public virtual FISCALYEAR FISCALYEAR { get; set; }
         public virtual QUARTEROPTION QUARTEROPTION { get; set; }
-        public virtual SUBCATEGORY SUBCATEGORY { get; set; }
+        public virtual SUBCATEGORy SUBCATEGORy { get; set; }
         public virtual TEAM TEAM { get; set; }
         public virtual WORKSTREAM WORKSTREAM { get; set; }
-        public virtual WORKSTREAM WORKSTREAM1 { get; set; }
     }
 }

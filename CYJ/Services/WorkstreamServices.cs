@@ -8,16 +8,16 @@ namespace CYJ.Services
 {
     public class WorkstreamServices
     {
-        private readonly cyjEntities _dbContext;
+        private readonly cyjdatabaseEntities _dbContext;
 
         public WorkstreamServices()
         {
-            _dbContext = new cyjEntities();
+            _dbContext = new cyjdatabaseEntities();
         }
 
         public List<WORKSTREAM> GetAllWStreams()
         {
-            return _dbContext.WORKSTREAMs.ToList();
+            return _dbContext.WORKSTREAMS.ToList();
         }
 
         /*public List<WORKSTREAM> GetWStreamsList(int teamID)
@@ -29,7 +29,7 @@ namespace CYJ.Services
         public WORKSTREAM GetWStreamsById(int id)
         {
             _dbContext.Configuration.ProxyCreationEnabled = false;
-            return _dbContext.WORKSTREAMs.SingleOrDefault(t => t.workstreamID == id);
+            return _dbContext.WORKSTREAMS.SingleOrDefault(t => t.workstreamID == id);
         }
 
         public void Dispose()

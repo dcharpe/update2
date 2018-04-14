@@ -18,36 +18,26 @@ namespace CYJ.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public WORKSTREAM()
         {
-            this.CATEGORies = new HashSet<CATEGORY>();
-            this.CHARTs = new HashSet<CHART>();
-            this.CHARTs1 = new HashSet<CHART>();
-            this.GOALACTUALs = new HashSet<GOALACTUAL>();
-            this.GOALACTUALs1 = new HashSet<GOALACTUAL>();
+            this.CATEGORIES = new HashSet<CATEGORy>();
+            this.CHARTS = new HashSet<CHART>();
+            this.GOALACTUALS = new HashSet<GOALACTUAL>();
         }
-
-        [Display(Name = "Workstream")]
+    
         public int workstreamID { get; set; }
         [Display(Name = "Workstream")]
         public string workstreamName { get; set; }
-        [Display(Name = "Team")]
         public Nullable<int> teamID { get; set; }
-        [Display(Name = "Category")]
         public Nullable<int> categoryID { get; set; }
-        [Display(Name = "Subcategory")]
         public Nullable<int> subcategoryID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CATEGORY> CATEGORies { get; set; }
-        public virtual CATEGORY CATEGORY { get; set; }
+        public virtual ICollection<CATEGORy> CATEGORIES { get; set; }
+        public virtual CATEGORy CATEGORy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHART> CHARTs { get; set; }
+        public virtual ICollection<CHART> CHARTS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHART> CHARTs1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GOALACTUAL> GOALACTUALs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GOALACTUAL> GOALACTUALs1 { get; set; }
-        public virtual SUBCATEGORY SUBCATEGORY { get; set; }
+        public virtual ICollection<GOALACTUAL> GOALACTUALS { get; set; }
+        public virtual SUBCATEGORy SUBCATEGORy { get; set; }
         public virtual TEAM TEAM { get; set; }
     }
 }

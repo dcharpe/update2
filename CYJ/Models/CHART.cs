@@ -15,6 +15,9 @@ namespace CYJ.Models
     public partial class CHART
     {
         public int chartID { get; set; }
+        public string chartName { get; set; }
+        public Nullable<int> Xaxis { get; set; }
+        public Nullable<int> Yaxis { get; set; }
         public Nullable<int> teamID { get; set; }
         public Nullable<int> workstreamID { get; set; }
         public Nullable<int> categoryID { get; set; }
@@ -22,18 +25,13 @@ namespace CYJ.Models
         public Nullable<int> fiscalYearID { get; set; }
         public Nullable<int> quarteroptionID { get; set; }
         public Nullable<int> goalActualID { get; set; }
-        public Nullable<int> Xaxis { get; set; }
-        public Nullable<int> Yaxis { get; set; }
-        public string chartName { get; set; }
     
-        public virtual CATEGORY CATEGORY { get; set; }
+        public virtual CATEGORy CATEGORy { get; set; }
         public virtual FISCALYEAR FISCALYEAR { get; set; }
         public virtual GOALACTUAL GOALACTUAL { get; set; }
         public virtual QUARTEROPTION QUARTEROPTION { get; set; }
-        public virtual SUBCATEGORY SUBCATEGORY { get; set; }
+        public virtual SUBCATEGORy SUBCATEGORy { get; set; }
         public virtual TEAM TEAM { get; set; }
-        public virtual TEAM TEAM1 { get; set; }
         public virtual WORKSTREAM WORKSTREAM { get; set; }
-        public virtual WORKSTREAM WORKSTREAM1 { get; set; }
     }
 }

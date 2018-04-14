@@ -18,24 +18,20 @@ namespace CYJ.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TEAM()
         {
-            this.CHARTs = new HashSet<CHART>();
-            this.CHARTs1 = new HashSet<CHART>();
-            this.GOALACTUALs = new HashSet<GOALACTUAL>();
-            this.WORKSTREAMs = new HashSet<WORKSTREAM>();
+            this.CHARTS = new HashSet<CHART>();
+            this.GOALACTUALS = new HashSet<GOALACTUAL>();
+            this.WORKSTREAMS = new HashSet<WORKSTREAM>();
         }
-
+    
+        public int teamID { get; set; }
         [Display(Name = "Team")]
-        public int TeamID { get; set; }
-        [Display(Name = "Team")]
-        public string TeamName { get; set; }
+        public string teamName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHART> CHARTs { get; set; }
+        public virtual ICollection<CHART> CHARTS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHART> CHARTs1 { get; set; }
+        public virtual ICollection<GOALACTUAL> GOALACTUALS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GOALACTUAL> GOALACTUALs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WORKSTREAM> WORKSTREAMs { get; set; }
+        public virtual ICollection<WORKSTREAM> WORKSTREAMS { get; set; }
     }
 }

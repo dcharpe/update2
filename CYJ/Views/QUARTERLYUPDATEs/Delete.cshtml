@@ -1,0 +1,50 @@
+﻿@model CYJ.Models.QUARTERLYUPDATE
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+
+}
+
+<h2>Delete Update</h2>
+
+<h3>Are you sure you want to delete this udpate?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.updateHeader)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updateHeader)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updateBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updateBody)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updateDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> 
+        <div>
+            <input type="button" class="btn" style="background-color:#3EC2CF" value="BACK TO UPDATE LIST" Onclick="@("window.location.href='" + @Url.Action("Index", "QUARTERLYUPDATEs") + "'");" />
+        </div>
+    </div>
+    }
+</div>

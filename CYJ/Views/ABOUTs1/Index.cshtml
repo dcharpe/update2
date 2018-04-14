@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CYJ.Models.ABOUT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+
+}
+<!doctype html>
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header" style="BACKGROUND-COLOR:#BCC65C">
+                <h4 class="title">ABOUT</h4>
+            </div>
+            <div class="card-content">
+                <center>
+                    <p>
+                        <input type="button" class="btn" style="background-color:#3EC2CF" value="CREATE A NEW POST" Onclick="@("window.location.href='" + @Url.Action("Create", "ABOUTs1") + "'");" />
+                    </p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.aboutHeader)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.aboutBody)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.aboutHeader)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.aboutBody)
+                    </td>
+                    <td>
+                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round" rel="tooltip" title="Click to Edit About Post" type="button" style="background-color:#FBAE3B" title="Edit"
+                                onclick="location.href='@Url.Action("Edit", new { id = item.aboutID })'">
+                            <i class="material-icons ">create</i>
+                        </button>
+
+                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round" rel="tooltip" title="Click to Delete About Post" type="button" style="background-color:#F37158" title="Delete"
+                                onclick="location.href='@Url.Action("Delete", new { id = item.aboutID })'">
+                            <i class="material-icons">delete</i>
+                        </button>
+                    </td>
+                </tr>
+}
+
+                    </table>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

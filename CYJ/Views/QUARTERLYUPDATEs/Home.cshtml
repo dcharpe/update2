@@ -1,0 +1,46 @@
+﻿@model IEnumerable < CYJ.Models.QUARTERLYUPDATE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<!doctype html>
+<html lang="en">
+<body>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header" style="BACKGROUND-COLOR:#BCC65C">
+                    <h4 class="title">QUARTERLY UPDATE</h4>
+                </div>
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table">
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.updateHeader)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.updateBody)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.updateDate)
+                                    </td>
+                                </tr>
+                                }
+                            </table>
+                        </div>
+                            <br />
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

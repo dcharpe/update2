@@ -10,78 +10,65 @@ using CYJ.Models;
 
 namespace CYJ.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, Observer")]
     public class CATEGORiesController : Controller
     {
-        private cyjEntities db = new cyjEntities();
+        private cyjdatabaseEntities db = new cyjdatabaseEntities();
 
         // GET: CATEGORies
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            var cATEGORies = db.CATEGORies.Include(c => c.WORKSTREAM);
+            var cATEGORies = db.CATEGORIES.Include(c => c.WORKSTREAM);
             return View(cATEGORies.ToList());
         }
 
-        // GET: CATEGORies/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            CATEGORY cATEGORY = db.CATEGORies.Find(id);
-            if (cATEGORY == null)
-            {
-                return HttpNotFound();
-            }
-            return View(cATEGORY);
-        }
 
         // GET: CATEGORies/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            ViewBag.workstreamID = new SelectList(db.WORKSTREAMs, "workstreamID", "workstreamName");
+            ViewBag.workstreamID = new SelectList(db.WORKSTREAMS, "workstreamID", "workstreamName");
             return View();
         }
 
         // POST: CATEGORies/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Create([Bind(Include = "categoryID,categoryName,workstreamID")] CATEGORY cATEGORY)
+        public ActionResult Create([Bind(Include = "categoryID,categoryName,workstreamID")] CATEGORy cATEGORY)
         {
             if (ModelState.IsValid)
             {
-                db.CATEGORies.Add(cATEGORY);
+                db.CATEGORIES.Add(cATEGORY);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.workstreamID = new SelectList(db.WORKSTREAMs, "workstreamID", "workstreamName", cATEGORY.workstreamID);
+            ViewBag.workstreamID = new SelectList(db.WORKSTREAMS, "workstreamID", "workstreamName", cATEGORY.workstreamID);
             return View(cATEGORY);
         }
 
         // GET: CATEGORies/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CATEGORY cATEGORY = db.CATEGORies.Find(id);
+            CATEGORy cATEGORY = db.CATEGORIES.Find(id);
             if (cATEGORY == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.workstreamID = new SelectList(db.WORKSTREAMs, "workstreamID", "workstreamName", cATEGORY.workstreamID);
+            ViewBag.workstreamID = new SelectList(db.WORKSTREAMS, "workstreamID", "workstreamName", cATEGORY.workstreamID);
             return View(cATEGORY);
         }
 
         // POST: CATEGORies/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "categoryID,categoryName,workstreamID")] CATEGORY cATEGORY)
+        public ActionResult Edit([Bind(Include = "categoryID,categoryName,workstreamID")] CATEGORy cATEGORY)
         {
             if (ModelState.IsValid)
             {
@@ -89,18 +76,19 @@ namespace CYJ.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.workstreamID = new SelectList(db.WORKSTREAMs, "workstreamID", "workstreamName", cATEGORY.workstreamID);
+            ViewBag.workstreamID = new SelectList(db.WORKSTREAMS, "workstreamID", "workstreamName", cATEGORY.workstreamID);
             return View(cATEGORY);
         }
 
         // GET: CATEGORies/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CATEGORY cATEGORY = db.CATEGORies.Find(id);
+            CATEGORy cATEGORY = db.CATEGORIES.Find(id);
             if (cATEGORY == null)
             {
                 return HttpNotFound();
@@ -109,11 +97,12 @@ namespace CYJ.Controllers
         }
 
         // POST: CATEGORies/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            CATEGORY cATEGORY = db.CATEGORies.Find(id);
-            db.CATEGORies.Remove(cATEGORY);
+            CATEGORy cATEGORY = db.CATEGORIES.Find(id);
+            db.CATEGORIES.Remove(cATEGORY);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

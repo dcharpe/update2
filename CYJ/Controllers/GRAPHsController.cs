@@ -12,13 +12,14 @@ using System.Collections.Generic;
 
 namespace CYJ.Controllers
 {
+    [Authorize(Roles = "Admin, Observer")]
     public class GRAPHsController : Controller
     {
 
 
 
         // Database 
-        private cyjEntities db = new cyjEntities();
+        private cyjdatabaseEntities db = new cyjdatabaseEntities();
 
         // Charts for Service Delivery View
         public ActionResult ServiceDelivery()
@@ -112,9 +113,9 @@ namespace CYJ.Controllers
         // Get the data for Q1 Goals
         public List<string> Q1GoalsEnrollment()
         {
-            var cats = db.CATEGORies;
-            var subcats = db.SUBCATEGORies;
-            var goals = db.GOALACTUALs;
+            var cats = db.CATEGORIES;
+            var subcats = db.SUBCATEGORIES;
+            var goals = db.GOALACTUALS;
 
             var q1enrollmentQuery = (from y in goals
                                      where y.subcategoryID == 4 && y.quarteroptionID == 1
@@ -144,9 +145,9 @@ namespace CYJ.Controllers
         public List<string> Q1ActualsEnrollment()
         {
 
-            var cats = db.CATEGORies;
-            var subcats = db.SUBCATEGORies;
-            var goals = db.GOALACTUALs;
+            var cats = db.CATEGORIES;
+            var subcats = db.SUBCATEGORIES;
+            var goals = db.GOALACTUALS;
 
             var q1enrollmentQuery = (from y in goals
                                      where y.subcategoryID == 4 && y.quarteroptionID == 1
@@ -191,9 +192,9 @@ namespace CYJ.Controllers
 
         public List<string> subCat()
         {
-            var cats = db.CATEGORies;
-            var subcats = db.SUBCATEGORies;
-            var goals = db.GOALACTUALs;
+            var cats = db.CATEGORIES;
+            var subcats = db.SUBCATEGORIES;
+            var goals = db.GOALACTUALS;
 
             var enrollmentQuery = (from y in goals
                                    where y.subcategoryID == 4

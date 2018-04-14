@@ -1,4 +1,4 @@
-﻿@model CYJ.Models.CATEGORY
+﻿@model CYJ.Models.CATEGORy
 
 @{
     ViewBag.Title = "Deactivate";
@@ -7,7 +7,7 @@
 
 <h2>Deactivating Category</h2>
 
-<h3>Are you sure you want to deactivate this?</h3>
+<h3>Are you sure you want to deactivate this category?</h3>
 
     <div>
         <hr />
@@ -26,7 +26,7 @@
         {
 
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> 
+                <input type="submit" value="Deactivate" class="btn btn-default" /> 
                 <div class="col-md-3">
                     <input type="button" class="btn btn-info" value="Back to List" onclick="@("window.location.href='" + @Url.Action("Index", "Categories") + "'");" />
                 </div>

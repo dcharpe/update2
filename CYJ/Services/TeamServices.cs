@@ -8,25 +8,25 @@ namespace CYJ.Services
 {
     public class TeamServices
     {
-        private readonly cyjEntities _dbContext;
+        private readonly cyjdatabaseEntities _dbContext;
 
         public TeamServices()
         {
-            _dbContext = new cyjEntities(); 
+            _dbContext = new cyjdatabaseEntities(); 
         }
         public List<TEAM> GetAllTeams()
         {
-            return _dbContext.TEAMs.ToList();
+            return _dbContext.TEAMS.ToList();
         }
 
         public TEAM GetTeamById(int id)
         {
-            return _dbContext.TEAMs.SingleOrDefault(t => t.TeamID == id);
+            return _dbContext.TEAMS.SingleOrDefault(t => t.teamID == id);
         }
 
         public void InsertTeam(TEAM _teamName)
         {
-            _dbContext.TEAMs.Add(_teamName);
+            _dbContext.TEAMS.Add(_teamName);
         }
         public void Save()
         {

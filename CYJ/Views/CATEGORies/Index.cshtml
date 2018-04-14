@@ -1,11 +1,11 @@
-﻿@model IEnumerable<CYJ.Models.CATEGORY>
+﻿@model IEnumerable<CYJ.Models.CATEGORy>
 
 @{
     ViewBag.Title = "Categories";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Available Categories</h2>
+<h2>Categories</h2>
 
 <p>
     <div class="col-md-3">
@@ -26,14 +26,20 @@
             @Html.DisplayFor(modelItem => item.categoryName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.categoryID }) |
-            @Html.ActionLink("More Info", "Details", new { id=item.categoryID }) |
-            @Html.ActionLink("Deactivate", "Delete", new { id=item.categoryID })
+            <button class="btn btn-primary btn-fab btn-fab-mini btn-round" rel="tooltip" title="Click to Edit Category" type="button" style="background-color:#FBAE3B" title="Edit"
+                    onclick="location.href='@Url.Action("Edit", new { id = item.categoryID })'">
+                <i class="material-icons ">create</i>
+            </button>
+
+            <button class="btn btn-primary btn-fab btn-fab-mini btn-round" rel="tooltip" title="Click to Deactivate Category" type="button" style="background-color:#F37158" title="Delete"
+                    onclick="location.href='@Url.Action("Delete", new { id = item.categoryID })'">
+                <i class="material-icons">delete</i>
+            </button>
         </td>
     </tr>
 }
 
 </table>
 <div class="col-md-3">
-    <input type="button" class="btn btn-info" value="Back to Admin" onclick="@("window.location.href='" + @Url.Action("Admin", "Home") + "'");" />
+    <input type="button" class="btn btn-info" value="Back to Add a New Item" onclick="@("window.location.href='" + @Url.Action("Add", "Home") + "'");" />
 </div>

@@ -18,27 +18,23 @@ namespace CYJ.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public FISCALYEAR()
         {
-            this.CHARTs = new HashSet<CHART>();
-            this.GOALACTUALs = new HashSet<GOALACTUAL>();
-            this.QUARTEROPTIONs = new HashSet<QUARTEROPTION>();
+            this.CHARTS = new HashSet<CHART>();
+            this.GOALACTUALS = new HashSet<GOALACTUAL>();
+            this.QUARTEROPTIONS = new HashSet<QUARTEROPTION>();
         }
-
-        [Display(Name = "Fiscal Year")]
+    
         public int fiscalYearID { get; set; }
-        [Display(Name = "Period")]
-        public Nullable<int> quarteroptionID { get; set; }
-        [Display(Name = "Subcategory")]
-        public Nullable<int> subcategoryID { get; set; }
         [Display(Name = "Fiscal Year")]
-        //[DisplayFormat(DataFormatString = "{0:yyyy}")]
-        public Nullable<int> fy { get; set; }
+        public int fiscalYear1 { get; set; }
+        public Nullable<int> subcategoryID { get; set; }
+        public Nullable<int> quarteroptionID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHART> CHARTs { get; set; }
+        public virtual ICollection<CHART> CHARTS { get; set; }
         public virtual QUARTEROPTION QUARTEROPTION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GOALACTUAL> GOALACTUALs { get; set; }
+        public virtual ICollection<GOALACTUAL> GOALACTUALS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QUARTEROPTION> QUARTEROPTIONs { get; set; }
+        public virtual ICollection<QUARTEROPTION> QUARTEROPTIONS { get; set; }
     }
 }

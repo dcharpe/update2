@@ -4,23 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CYJ.Models;
+using CYJ.Models.ViewModels;
 
 namespace CYJ.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, Observer")]
     public class HomeController : Controller
     {
+        private cyjdatabaseEntities db = new cyjdatabaseEntities();
         public HomeController()
         {
         }
-
         [Authorize(Roles = "Admin")]
         public ActionResult Admin()
         {
 
             return View();
         }
-    
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Added()
         {
             return View();
@@ -29,36 +31,47 @@ namespace CYJ.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "Admin, Observer")]
         public ActionResult ServiceDelivery()
         {
             return View();
         }
 
-     
+
+        [Authorize(Roles = "Admin, Observer")]
         public ActionResult CorpMemberExperience()
         {
             return View();
         }
+
+        [Authorize(Roles = "Admin, Observer")]
         public ActionResult ExternalAffairs()
         {
             return View();
         }
+
+        [Authorize(Roles = "Admin, Observer")]
         public ActionResult Revenue()
         {
             return View();
         }
+
+        [Authorize(Roles = "Admin, Observer")]
         public ActionResult OpEx()
         {
             return View();
         }
+
+        [Authorize(Roles = "Admin, Observer")]
         public ActionResult RAD()
         {
             return View();
         }
-        [Authorize(Roles = "Admin")]
+
+        [Authorize(Roles = "Admin, Observer")]
         public ActionResult Index()
         {
-            return View();
+            return View(db.ABOUTs.ToList());
         }
 
         public JsonResult GetEvents()

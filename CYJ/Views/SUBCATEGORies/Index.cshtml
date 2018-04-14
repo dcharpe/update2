@@ -1,11 +1,11 @@
-﻿@model IEnumerable<CYJ.Models.SUBCATEGORY>
+﻿@model IEnumerable<CYJ.Models.SUBCATEGORy>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
 
-<h2>Available Subcatorgies</h2>
+<h2>Subcategories</h2>
 
 <p>
     <div class="col-md-3">
@@ -28,14 +28,20 @@
             @Html.DisplayFor(modelItem => item.subcategoryName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.subcategoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.subcategoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.subcategoryID })
+            <button class="btn btn-primary btn-fab btn-fab-mini btn-round" rel="tooltip" title="Click to Edit Subcategory" type="button" style="background-color:#FBAE3B" title="Edit"
+                    onclick="location.href='@Url.Action("Edit", new { id = item.subcategoryID })'">
+                <i class="material-icons ">create</i>
+            </button>
+
+            <button class="btn btn-primary btn-fab btn-fab-mini btn-round" rel="tooltip" title="Click to Deactivate Subcategory" type="button" style="background-color:#F37158" title="Delete"
+                    onclick="location.href='@Url.Action("Delete", new { id = item.subcategoryID })'">
+                <i class="material-icons">delete</i>
+            </button>
         </td>
     </tr>
 }
 
 </table>
 <div class="col-md-3">
-    <input type="button" class="btn btn-info" value="Back to Admin" onclick="@("window.location.href='" + @Url.Action("Admin", "Home") + "'");" />
+    <input type="button" class="btn btn-info" value="Back to Add a New Item" onclick="@("window.location.href='" + @Url.Action("Add", "Home") + "'");" />
 </div>

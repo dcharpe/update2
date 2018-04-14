@@ -197,20 +197,21 @@
     <Compile Include="Calendar.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\ABOUTsController.cs" />
+    <Compile Include="Controllers\ABOUTs1Controller.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CATEGORiesController.cs" />
     <Compile Include="Controllers\CorpsMemberExperienceController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\FISCALYEARsController.cs" />
+    <Compile Include="Controllers\FISCALYEARs1Controller.cs" />
     <Compile Include="Controllers\GOALACTUALsController.cs" />
     <Compile Include="Controllers\GRAPHsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\QUARTEROPTIONsController.cs" />
+    <Compile Include="Controllers\QUARTERLYUPDATEsController.cs" />
+    <Compile Include="Controllers\QUARTEROPTIONs1Controller.cs" />
     <Compile Include="Controllers\SUBCATEGORiesController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Controllers\TEAMsController.cs" />
-    <Compile Include="Controllers\WORKSTREAMsController.cs" />
+    <Compile Include="Controllers\WORKSTREAMs1Controller.cs" />
     <Compile Include="DAL\RoleClaimContext.cs" />
     <Compile Include="DAL\TasksDBHelper.cs" />
     <Compile Include="Global.asax.cs">
@@ -234,7 +235,10 @@
     <Compile Include="Models\ABOUT.cs">
       <DependentUpon>UNFCYJ.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CATEGORY.cs">
+    <Compile Include="Models\CALENDAR.cs">
+      <DependentUpon>UNFCYJ.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CATEGORy.cs">
       <DependentUpon>UNFCYJ.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CHART.cs">
@@ -246,10 +250,13 @@
     <Compile Include="Models\GOALACTUAL.cs">
       <DependentUpon>UNFCYJ.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QUARTERLYUPDATE.cs">
+      <DependentUpon>UNFCYJ.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QUARTEROPTION.cs">
       <DependentUpon>UNFCYJ.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SUBCATEGORY.cs">
+    <Compile Include="Models\SUBCATEGORy.cs">
       <DependentUpon>UNFCYJ.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Task.cs" />
@@ -274,6 +281,7 @@
     </Compile>
     <Compile Include="Models\ViewModels\CategoryViewModel.cs" />
     <Compile Include="Models\ViewModels\GoalCatViewModel.cs" />
+    <Compile Include="Models\ViewModels\HomeViewModel.cs" />
     <Compile Include="Models\ViewModels\SubcategoryViewModel.cs" />
     <Compile Include="Models\ViewModels\TeamViewModel.cs" />
     <Compile Include="Models\ViewModels\WorkstreamViewModel.cs" />
@@ -289,6 +297,9 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\ConfigHelper.cs" />
     <Compile Include="Utils\Globals.cs" />
+    <Compile Include="Views\GRAPHs\PromoterScoreController.cs" />
+    <Compile Include="Views\GRAPHs\ReturningACMController.cs" />
+    <Compile Include="Views\GRAPHs\TeamLeadersController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -651,13 +662,6 @@
     <Content Include="Scripts\code\themes\sand-signika.js.map" />
     <Content Include="Scripts\code\themes\skies.js.map" />
     <Content Include="Scripts\code\themes\sunset.js.map" />
-    <EntityDeploy Include="Models\UNFCYJ.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UNFCYJ.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\UNFCYJ.edmx.diagram">
-      <DependentUpon>UNFCYJ.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\mytemplate\js\fullcalendar-3.9.0\fullcalendar-3.9.0\demos\json\events.json" />
     <Content Include="Content\mytemplate\js\fullcalendar-3.9.0\fullcalendar-3.9.0\demos\php\get-events.php" />
     <Content Include="Content\mytemplate\js\fullcalendar-3.9.0\fullcalendar-3.9.0\demos\php\get-timezones.php" />
@@ -680,6 +684,13 @@
     <Content Include="Content\mytemplate\js\perfect-scrollbar-master\package.json" />
     <Content Include="Content\mytemplate\js\perfect-scrollbar-master\README.md" />
     <Content Include="Content\mytemplate\js\perfect-scrollbar-master\release" />
+    <EntityDeploy Include="Models\UNFCYJ.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UNFCYJ.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\UNFCYJ.edmx.diagram">
+      <DependentUpon>UNFCYJ.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\code\css\highcharts.css" />
     <Content Include="Scripts\code\highcharts-3d.js" />
@@ -963,58 +974,58 @@
     <Content Include="Views\GRAPHs\Revenue.cshtml" />
     <Content Include="Views\GRAPHs\RAD.cshtml" />
     <Content Include="Views\GRAPHs\OpEx.cshtml" />
-    <Content Include="Views\GOALACTUALs\Create.cshtml" />
-    <Content Include="Views\GOALACTUALs\Delete.cshtml" />
-    <Content Include="Views\GOALACTUALs\Details.cshtml" />
-    <Content Include="Views\GOALACTUALs\Edit.cshtml" />
-    <Content Include="Views\GOALACTUALs\Index.cshtml" />
-    <Content Include="Views\FISCALYEARs\Create.cshtml" />
-    <Content Include="Views\FISCALYEARs\Delete.cshtml" />
-    <Content Include="Views\FISCALYEARs\Details.cshtml" />
-    <Content Include="Views\FISCALYEARs\Edit.cshtml" />
-    <Content Include="Views\FISCALYEARs\Index.cshtml" />
-    <Content Include="Views\ABOUTs\Create.cshtml" />
-    <Content Include="Views\ABOUTs\Delete.cshtml" />
-    <Content Include="Views\ABOUTs\Details.cshtml" />
-    <Content Include="Views\ABOUTs\Edit.cshtml" />
-    <Content Include="Views\ABOUTs\Index.cshtml" />
     <Content Include="Views\CATEGORies\Create.cshtml" />
     <Content Include="Views\CATEGORies\Delete.cshtml" />
-    <Content Include="Views\CATEGORies\Details.cshtml" />
     <Content Include="Views\CATEGORies\Edit.cshtml" />
     <Content Include="Views\CATEGORies\Index.cshtml" />
-    <Content Include="Views\QUARTEROPTIONs\Create.cshtml" />
-    <Content Include="Views\QUARTEROPTIONs\Delete.cshtml" />
-    <Content Include="Views\QUARTEROPTIONs\Details.cshtml" />
-    <Content Include="Views\QUARTEROPTIONs\Edit.cshtml" />
-    <Content Include="Views\QUARTEROPTIONs\Index.cshtml" />
     <Content Include="Views\SUBCATEGORies\Create.cshtml" />
     <Content Include="Views\SUBCATEGORies\Delete.cshtml" />
-    <Content Include="Views\SUBCATEGORies\Details.cshtml" />
     <Content Include="Views\SUBCATEGORies\Edit.cshtml" />
     <Content Include="Views\SUBCATEGORies\Index.cshtml" />
     <Content Include="Views\TEAMs\Create.cshtml" />
     <Content Include="Views\TEAMs\Delete.cshtml" />
-    <Content Include="Views\TEAMs\Details.cshtml" />
     <Content Include="Views\TEAMs\Edit.cshtml" />
     <Content Include="Views\TEAMs\Index.cshtml" />
-    <Content Include="Views\WORKSTREAMs\Create.cshtml" />
-    <Content Include="Views\WORKSTREAMs\Delete.cshtml" />
-    <Content Include="Views\WORKSTREAMs\Details.cshtml" />
-    <Content Include="Views\WORKSTREAMs\Edit.cshtml" />
-    <Content Include="Views\WORKSTREAMs\Index.cshtml" />
-    <Content Include="Views\ABOUTs\Home.cshtml" />
-    <Content Include="Views\GOALACTUALs\FilterPeriod.cshtml" />
-    <Content Include="Views\GOALACTUALs\FilterWorkstream.cshtml" />
-    <Content Include="Views\GOALACTUALs\FilterFY.cshtml" />
     <Content Include="Views\GRAPHs\ServiceDelivery.cshtml" />
     <Content Include="Views\Error\ShowError.cshtml" />
     <Content Include="Views\Error\Reauth.cshtml" />
+    <Content Include="Views\CorpsMemberExperience\CorpMemberExperience.cshtml" />
+    <Content Include="Views\PromoterScore\PromoterScore.cshtml" />
+    <Content Include="Views\ABOUTs1\Create.cshtml" />
+    <Content Include="Views\ABOUTs1\Delete.cshtml" />
+    <Content Include="Views\ABOUTs1\Edit.cshtml" />
+    <Content Include="Views\ABOUTs1\Index.cshtml" />
+    <Content Include="Views\ABOUTs1\Home.cshtml" />
+    <Content Include="Views\WORKSTREAMs1\Create.cshtml" />
+    <Content Include="Views\WORKSTREAMs1\Delete.cshtml" />
+    <Content Include="Views\WORKSTREAMs1\Edit.cshtml" />
+    <Content Include="Views\WORKSTREAMs1\Index.cshtml" />
+    <Content Include="Views\FISCALYEARs1\Create.cshtml" />
+    <Content Include="Views\FISCALYEARs1\Delete.cshtml" />
+    <Content Include="Views\FISCALYEARs1\Edit.cshtml" />
+    <Content Include="Views\FISCALYEARs1\Index.cshtml" />
+    <Content Include="Views\QUARTEROPTIONs1\Create.cshtml" />
+    <Content Include="Views\QUARTEROPTIONs1\Delete.cshtml" />
+    <Content Include="Views\QUARTEROPTIONs1\Edit.cshtml" />
+    <Content Include="Views\QUARTEROPTIONs1\Index.cshtml" />
+    <Content Include="Views\QUARTERLYUPDATEs\Create.cshtml" />
+    <Content Include="Views\QUARTERLYUPDATEs\Delete.cshtml" />
+    <Content Include="Views\QUARTERLYUPDATEs\Edit.cshtml" />
+    <Content Include="Views\QUARTERLYUPDATEs\Index.cshtml" />
+    <Content Include="Views\QUARTERLYUPDATEs\Home.cshtml" />
+    <Content Include="Views\GOALACTUALs\Create.cshtml" />
+    <Content Include="Views\GOALACTUALs\Delete.cshtml" />
+    <Content Include="Views\GOALACTUALs\Edit.cshtml" />
+    <Content Include="Views\GOALACTUALs\Index.cshtml" />
+    <Content Include="Views\GOALACTUALs\FilterPeriod.cshtml" />
+    <Content Include="Views\GOALACTUALs\FilterWorkstream.cshtml" />
+    <Content Include="Views\GOALACTUALs\FilterFY.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\CorpsMemberExperience\" />
+    <Folder Include="Views\ReturningACM\" />
     <Folder Include="Views\Tasks\" />
+    <Folder Include="Views\TeamLeaders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -10,47 +10,34 @@ using CYJ.Models;
 
 namespace CYJ.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, Observer")]
     public class TEAMsController : Controller
     {
-        private cyjEntities db = new cyjEntities();
+        private cyjdatabaseEntities db = new cyjdatabaseEntities();
 
         // GET: TEAMs
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            return View(db.TEAMs.ToList());
+            return View(db.TEAMS.ToList());
         }
 
-        // GET: TEAMs/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TEAM tEAM = db.TEAMs.Find(id);
-            if (tEAM == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tEAM);
-        }
 
         // GET: TEAMs/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: TEAMs/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create([Bind(Include = "TeamID,TeamName")] TEAM tEAM)
         {
             if (ModelState.IsValid)
             {
-                db.TEAMs.Add(tEAM);
+                db.TEAMS.Add(tEAM);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -59,13 +46,14 @@ namespace CYJ.Controllers
         }
 
         // GET: TEAMs/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TEAM tEAM = db.TEAMs.Find(id);
+            TEAM tEAM = db.TEAMS.Find(id);
             if (tEAM == null)
             {
                 return HttpNotFound();
@@ -74,8 +62,7 @@ namespace CYJ.Controllers
         }
 
         // POST: TEAMs/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Edit([Bind(Include = "TeamID,TeamName")] TEAM tEAM)
         {
@@ -89,13 +76,14 @@ namespace CYJ.Controllers
         }
 
         // GET: TEAMs/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TEAM tEAM = db.TEAMs.Find(id);
+            TEAM tEAM = db.TEAMS.Find(id);
             if (tEAM == null)
             {
                 return HttpNotFound();
@@ -104,11 +92,12 @@ namespace CYJ.Controllers
         }
 
         // POST: TEAMs/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            TEAM tEAM = db.TEAMs.Find(id);
-            db.TEAMs.Remove(tEAM);
+            TEAM tEAM = db.TEAMS.Find(id);
+            db.TEAMS.Remove(tEAM);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

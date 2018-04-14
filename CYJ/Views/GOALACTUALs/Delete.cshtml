@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
+
 }
 
 <h2>Deactivating Goal and Actual</h2>
@@ -28,43 +29,43 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CATEGORY.categoryName)
+            @Html.DisplayNameFor(model => model.CATEGORy.categoryName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CATEGORY.categoryName)
+            @Html.DisplayFor(model => model.CATEGORy.categoryName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FISCALYEAR.fy)
+            @Html.DisplayNameFor(model => model.FISCALYEAR.fiscalYearID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FISCALYEAR.fy)
+            @Html.DisplayFor(model => model.FISCALYEAR.fiscalYearID)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.QUARTEROPTION.quarterOpt)
+            @Html.DisplayNameFor(model => model.QUARTEROPTION.quarteroptionName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.QUARTEROPTION.quarterOpt)
+            @Html.DisplayFor(model => model.QUARTEROPTION.quarteroptionName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SUBCATEGORY.subcategoryName)
+            @Html.DisplayNameFor(model => model.SUBCATEGORy.subcategoryName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SUBCATEGORY.subcategoryName)
+            @Html.DisplayFor(model => model.SUBCATEGORy.subcategoryName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TEAM.TeamName)
+            @Html.DisplayNameFor(model => model.TEAM.teamName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TEAM.TeamName)
+            @Html.DisplayFor(model => model.TEAM.teamName)
         </dd>
 
         <dt>
@@ -75,22 +76,15 @@
             @Html.DisplayFor(model => model.WORKSTREAM.workstreamName)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.WORKSTREAM1.workstreamName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WORKSTREAM1.workstreamName)
-        </dd>
-
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
 
         <div class="form-actions no-color">
-            <input type="submit" value="Deactivate" class="btn btn-default" /> |
+            <input type="submit" value="Delete" class="btn btn-default" /> 
             <div class="col-md-3">
-                <input type="button" class="btn btn-info" value="Back to List" onclick="@("window.location.href='" + @Url.Action("Index", "goalactuals") + "'");" />
+                <input type="button" class="btn btn-info" value="Back to Goals and Actuals List" onclick="@("window.location.href='" + @Url.Action("Index", "GOALACTUALs") + "'");" />
             </div>
         </div>
     }

@@ -8,21 +8,21 @@ namespace CYJ.Services
 {
     public class CategoryServices
     {
-        private readonly cyjEntities _dbContext;
+        private readonly cyjdatabaseEntities _dbContext;
 
         public CategoryServices()
         {
-            _dbContext = new cyjEntities();
+            _dbContext = new cyjdatabaseEntities();
         }
 
-        public List<CATEGORY> GetAllCategories()
+        public List<CATEGORy> GetAllCategories()
         {
 
-            return _dbContext.CATEGORies.ToList();
+            return _dbContext.CATEGORIES.ToList();
         }
-        public CATEGORY GetCategoryById(int id)
+        public CATEGORy GetCategoryById(int id)
         {
-            return _dbContext.CATEGORies.SingleOrDefault(t => t.categoryID == id);
+            return _dbContext.CATEGORIES.SingleOrDefault(t => t.categoryID == id);
         }
 
         public void Dispose()

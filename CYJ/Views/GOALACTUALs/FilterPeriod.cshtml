@@ -1,17 +1,13 @@
 ﻿@model IEnumerable<CYJ.Models.GOALACTUAL>
-
 @{
     ViewBag.Title = "Goals";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
-
 <h2>Goals</h2>
-
 <p>
     @Html.ActionLink("Create a New Goal", "Create") |
     @Html.ActionLink("Back to all Goals", "Index")
 </p>
-
 @using (Html.BeginForm())
 {
     <p>
@@ -20,11 +16,10 @@
     </p>
 }
 
-
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.QUARTEROPTION.quarterOpt)
+            @Html.DisplayNameFor(model => model.QUARTEROPTION.quarteroptionName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.actualGoal)
@@ -36,25 +31,24 @@
                 @Html.DisplayNameFor(model => model.fiscalYear)
             </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.SUBCATEGORY.subcategoryName)
+            @Html.DisplayNameFor(model => model.SUBCATEGORy.subcategoryName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CATEGORY.categoryName)
+            @Html.DisplayNameFor(model => model.CATEGORy.categoryName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.WORKSTREAM.workstreamName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TEAM.TeamName)
+            @Html.DisplayNameFor(model => model.TEAM.teamName)
         </th>
         <th></th>
     </tr>
-
     @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.QUARTEROPTION.quarterOpt)
+                @Html.DisplayFor(modelItem => item.QUARTEROPTION.quarteroptionName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.actualGoal)
@@ -66,16 +60,16 @@
                     @Html.DisplayFor(modelItem => item.fiscalYear)
                 </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.SUBCATEGORY.subcategoryName)
+                @Html.DisplayFor(modelItem => item.SUBCATEGORy.subcategoryName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CATEGORY.categoryName)
+                @Html.DisplayFor(modelItem => item.CATEGORy.categoryName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.WORKSTREAM.workstreamName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TEAM.TeamName)
+                @Html.DisplayFor(modelItem => item.TEAM.teamName)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.goalActualID }) |
@@ -84,5 +78,4 @@
             </td>
         </tr>
     }
-
 </table>

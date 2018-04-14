@@ -12,14 +12,11 @@ namespace CYJ.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using DotNet.Highcharts;
-
-    public partial class cyjEntities : DbContext
+    
+    public partial class cyjdatabaseEntities : DbContext
     {
-        internal Highcharts Chart1;
-
-        public cyjEntities()
-            : base("name=cyjEntities")
+        public cyjdatabaseEntities()
+            : base("name=cyjdatabaseEntities")
         {
         }
     
@@ -29,13 +26,15 @@ namespace CYJ.Models
         }
     
         public virtual DbSet<ABOUT> ABOUTs { get; set; }
-        public virtual DbSet<CATEGORY> CATEGORies { get; set; }
-        public virtual DbSet<CHART> CHARTs { get; set; }
-        public virtual DbSet<FISCALYEAR> FISCALYEARs { get; set; }
-        public virtual DbSet<GOALACTUAL> GOALACTUALs { get; set; }
-        public virtual DbSet<QUARTEROPTION> QUARTEROPTIONs { get; set; }
-        public virtual DbSet<SUBCATEGORY> SUBCATEGORies { get; set; }
-        public virtual DbSet<TEAM> TEAMs { get; set; }
-        public virtual DbSet<WORKSTREAM> WORKSTREAMs { get; set; }
+        public virtual DbSet<CALENDAR> CALENDARs { get; set; }
+        public virtual DbSet<CATEGORy> CATEGORIES { get; set; }
+        public virtual DbSet<CHART> CHARTS { get; set; }
+        public virtual DbSet<FISCALYEAR> FISCALYEARS { get; set; }
+        public virtual DbSet<GOALACTUAL> GOALACTUALS { get; set; }
+        public virtual DbSet<QUARTERLYUPDATE> QUARTERLYUPDATEs { get; set; }
+        public virtual DbSet<QUARTEROPTION> QUARTEROPTIONS { get; set; }
+        public virtual DbSet<SUBCATEGORy> SUBCATEGORIES { get; set; }
+        public virtual DbSet<TEAM> TEAMS { get; set; }
+        public virtual DbSet<WORKSTREAM> WORKSTREAMS { get; set; }
     }
 }

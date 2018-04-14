@@ -8,22 +8,22 @@ namespace CYJ.Services
 {
     public class SubcategoryServices
     {
-        private readonly cyjEntities _dbContext;
+        private readonly cyjdatabaseEntities _dbContext;
 
         public SubcategoryServices()
         {
-            _dbContext = new cyjEntities();
+            _dbContext = new cyjdatabaseEntities();
         }
 
-        public List<SUBCATEGORY> GetAllSubCategories()
+        public List<SUBCATEGORy> GetAllSubCategories()
         {
 
-            return _dbContext.SUBCATEGORies.ToList();
+            return _dbContext.SUBCATEGORIES.ToList();
         }
 
-        public SUBCATEGORY GetSubCategoryById(int id)
+        public SUBCATEGORy GetSubCategoryById(int id)
         {
-            return _dbContext.SUBCATEGORies.SingleOrDefault(t => t.subcategoryID == id);
+            return _dbContext.SUBCATEGORIES.SingleOrDefault(t => t.subcategoryID == id);
         }
 
         public void Dispose()

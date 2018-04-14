@@ -15,9 +15,10 @@ namespace CYJ.Models
 
     public partial class ABOUT
     {
-        [Display(Name = "About")]
-        public int AboutID { get; set; }
-        [Display(Name = "About")]
-        public string AboutInfo { get; set; }
+        public int aboutID { get; set; }
+        [Display (Name="Post Header")]
+        public string aboutHeader { get; set; }
+        [Display(Name = "Post Body")]
+        public string aboutBody { get; set; }
     }
 }

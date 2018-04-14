@@ -18,26 +18,23 @@ namespace CYJ.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public QUARTEROPTION()
         {
-            this.CHARTs = new HashSet<CHART>();
-            this.FISCALYEARs = new HashSet<FISCALYEAR>();
-            this.GOALACTUALs = new HashSet<GOALACTUAL>();
+            this.CHARTS = new HashSet<CHART>();
+            this.FISCALYEARS = new HashSet<FISCALYEAR>();
+            this.GOALACTUALS = new HashSet<GOALACTUAL>();
         }
-
-        [Display(Name = "Period")]
+    
         public int quarteroptionID { get; set; }
-        [Display(Name = "Subcategory")]
-        public Nullable<int> subcategoryID { get; set; }
-        [Display(Name = "Fiscal Year")]
-        public Nullable<int> fiscalYearID { get; set; }
         [Display(Name = "Period")]
-        public string quarterOpt { get; set; }
+        public string quarteroptionName { get; set; }
+        public Nullable<int> subcategoryID { get; set; }
+        public Nullable<int> fiscalYearID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHART> CHARTs { get; set; }
+        public virtual ICollection<CHART> CHARTS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FISCALYEAR> FISCALYEARs { get; set; }
+        public virtual ICollection<FISCALYEAR> FISCALYEARS { get; set; }
         public virtual FISCALYEAR FISCALYEAR { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GOALACTUAL> GOALACTUALs { get; set; }
+        public virtual ICollection<GOALACTUAL> GOALACTUALS { get; set; }
     }
 }

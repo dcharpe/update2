@@ -1,0 +1,52 @@
+﻿@model CYJ.Models.QUARTERLYUPDATE
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+
+}
+
+<h2>Edit Quarterly Update</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.updateID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.updateHeader, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.updateHeader, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.updateHeader, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.updateBody, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.updateBody, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.updateBody, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.updateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.updateDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.updateDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <input type="button" class="btn" style="background-color:#3EC2CF" value="BACK TO UPDATE LIST" Onclick="@("window.location.href='" + @Url.Action("Index", "QUARTERLYUPDATEs") + "'");" />
+</div>

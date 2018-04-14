@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\ericm\Source\Repos\LastProject\CYJ\Models\UNFCYJ.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Wafaa\Source\Repos\CYJPermission-master\CYJ\Models\UNFCYJ.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
