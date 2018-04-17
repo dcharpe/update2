@@ -7,92 +7,83 @@
     <link rel="apple-touch-icon" sizes="76x76" href="@Url.Content("~/Content/mytemplate/")img/city-year-logo.png" />
     <link rel="icon" type="image/png" sizes="76x76" href="@Url.Content("~/Content/mytemplate/")img/city-year-logo.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>@ViewBag.Title</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+
     <!-- Bootstrap core CSS     -->
     <link href="@Url.Content("~/Content/mytemplate/")css/bootstrap.min.css" rel="stylesheet" />
+
     <!--  Material Dashboard CSS    -->
-    <link href="~/Content/mytemplate/css/material-dashboard.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/mytemplate/")css/material-dashboard.css" rel="stylesheet" />
+
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="@Url.Content("~/Content/mytemplate/")css/demo.css" rel="stylesheet" />
+
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-
-    <!--Template Scripts -->
-    <!--   Core JS Files   -->
-    <script src="@Url.Content("~/Content/mytemplate/")js/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="@Url.Content("~/Content/mytemplate/")js/material.min.js" type="text/javascript"></script>
-    <!--  Charts Plugin -->
-    <script src="@Url.Content("~/Content/mytemplate/")js/chartist.min.js"></script>
-    <!--  Dynamic Elements plugin -->
-    <script src="@Url.Content("~/Content/mytemplate/")js/arrive.min.js"></script>
-    <!--  PerfectScrollbar Library -->
-
-    <script src="~/Content/mytemplate/js/perfect-scrollbar.jquery.min.js"></script>    <!--  Notifications Plugin    -->
-    <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap-notify.js"></script>
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Material Dashboard javascript methods -->
-    <script src="@Url.Content("~/Content/mytemplate/")js/material-dashboard.js?v=1.2.0"></script>
-
-    <script type="text/javascript">
-
-    </script>
-
-
+    <link href="~/Content/mytemplate/js/fullcalendar-3.9.0/fullcalendar-3.9.0/fullcalendar.min.css" rel="stylesheet" />
+    <link href="~/Content/mytemplate/js/fullcalendar-3.9.0/fullcalendar-3.9.0/fullcalendar.print.css" rel="stylesheet" media="print" />
+    <link href="~/Content/mytemplate/js/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 
 </head>
 <body>
     <div class="wrapper">
-        <div class="sidebar" data-color="red" data-image="@Url.Content("~/Content/Images/citysidebar.jpg")">
-
+        <div class="sidebar" data-color="red" data-image="@Url.Content("~/Content/mytemplate/")img/sidebar-1.jpg">
             <div class="logo">
-                <a href="https://www.cityyear.org/jacksonville" class="simple-text">
-                    City Year Jax
-                </a>
-                <Center> <img src="~/Content/Images/CITYYEARLOGO.png" alt="LOGO" style="width:200px;height:200px;" /></Center>
-
+                <center>
+                    <a href="https://www.cityyear.org/jacksonville" class="simple-text">
+                        <img src="~/Content/Images/CITYYEARLOGO.png" alt="LOGO" style="width:95px;height:95px;" />
+                    </a>
+                </center>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li><a href="@Url.Action("Index", "Home")"><i class="material-icons md-18">home</i> HOME</a></li>
-                    <li><a href="@Url.Action("Home", "ABOUTs1")"><i class="material-icons md-18">location_city</i>ABOUT</a></li>
-                    <li><a href="@Url.Action("Admin", "Home")"><i class="material-icons md-18">verified_user</i>ADMIN</a></li>
-                    @*<li><a href="@Url.Action("FilterByGoal", "GOALs")"><i class="material-icons md-18">school</i>FILTER BY GOAL</a></li>*@
-                    <li><a href="@Url.Action("ServiceDelivery", "GRAPHs")"><i class="material-icons md-18">school</i>SERVICE DELIVERY</a></li>
-                    <li><a href="@Url.Action("CorpMemberExperience", "GRAPHs")"><i class="material-icons md-18">group</i>CORP MEMBER EXPERIENCE</a></li>
-                    <li><a href="@Url.Action("ExternalAffairs", "GRAPHs")"><i class="material-icons md-18">event</i>EXTERNAL AFFAIRS</a></li>
-                    <li><a href="@Url.Action("Revenue", "GRAPHs")"><i class="material-icons md-18">local_atm</i>REVENUE</a></li>
-                    <li><a href="@Url.Action("OpEx", "GRAPHs")"><i class="material-icons md-18">settings</i>OPEX</a></li>
-                    <li><a href="@Url.Action("RAD", "GRAPHs")"><i class="material-icons md-18">assignment</i>RAD</a></li>
-                </ul>
+                    <li rel="tooltip" title="Home">
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="material-icons md-18">home</i>HOME
 
+                        </a>
+
+                    </li>
+                    <li rel="tooltip" title="About">
+                        <a href="@Url.Action("Home", "ABOUTs")">
+                            <i class="material-icons md-18">location_city</i>
+                            ABOUT
+                        </a>
+                    </li>
+                    <li rel="tooltip" title="Redirects to Add A New Item, Update A Goal, Edit About Page"><a href="@Url.Action("Admin", "Home")"><i class="material-icons md-18">verified_user</i>ADMIN</a></li>
+                    <li rel="tooltip" title="Redirects to Service Delivery Graphs"><a href="@Url.Action("ServiceDelivery", "GRAPHs")"><i class="material-icons md-18">school</i>SERVICE DELIVERY</a></li>
+                    <li rel="tooltip" title="Redirects to Corp Member Experience Graphs"><a href="@Url.Action("CorpMemberExperience", "GRAPHs")"><i class="material-icons md-18">group</i>CORP MEMBER EXPERIENCE</a></li>
+                    <li rel="tooltip" title="Redirects to External Affair Graphs"><a href="@Url.Action("ExternalAffairs", "GRAPHs")"><i class="material-icons md-18">event</i>EXTERNAL AFFAIRS</a></li>
+                    <li rel="tooltip" title="Redirects to Revenue Graphs"><a href="@Url.Action("Revenue", "GRAPHs")"><i class="material-icons md-18">local_atm</i>REVENUE</a></li>
+                    <li rel="tooltip" title="Redirects to OpEx Graphs"><a href="@Url.Action("OpEx", "GRAPHs")"><i class="material-icons md-18">settings</i>OPEX</a></li>
+                    <li rel="tooltip" title="Redirects to RAD Graphs"><a href="@Url.Action("RAD", "GRAPHs")"><i class="material-icons md-18">assignment</i>RAD</a></li>
+                </ul>
             </div>
         </div>
+
         <div class="main-panel">
             <nav class="navbar navbar-transparent navbar-absolute">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#"> City Year Jax | Dashboard </a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                @Html.Partial("_LoginPartial")
-                            </li>
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#"> City Year Jax | Dashboard </a>
+                        </div>
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    @Html.Partial("_LoginPartial")
+                                </li>
 
-                        </ul>
+                            </ul>
 
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -118,7 +109,230 @@
             </footer>
         </div>
     </div>
-    @RenderSection("Scripts", false)
+
 </body>
+@RenderSection("Scripts", false)
+<!--Template Scripts -->
+<!--   Core JS Files   -->
+<script src="@Url.Content("~/Content/mytemplate/")js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/mytemplate/")js/material.min.js" type="text/javascript"></script>
+
+<!--  Charts Plugin -->
+<script src="@Url.Content("~/Content/mytemplate/")js/chartist.min.js"></script>
+
+<!--  Dynamic Elements plugin -->
+<script src="@Url.Content("~/Content/mytemplate/")js/arrive.min.js"></script>
+
+<!--  PerfectScrollbar Library -->
+<script src="@Url.Content("~/Content/mytemplate/")perfect-scrollbar.jquery.min.js"></script>    <!--  Notifications Plugin    -->
+<script src="@Url.Content("~/Content/mytemplate/")js/bootstrap-notify.js"></script>
+
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+<!-- Material Dashboard javascript methods -->
+<script src="@Url.Content("~/Content/mytemplate/")js/material-dashboard.js?v=1.2.0"></script>
+
+<script type="text/javascript">
+
+</script>
+
+<script src="~/Content/mytemplate/js/fullcalendar-3.9.0/fullcalendar-3.9.0/lib/moment.min.js"></script>
+<script src="~/Content/mytemplate/js/fullcalendar-3.9.0/fullcalendar-3.9.0/fullcalendar.min.js"></script>
+<script type="text/javascript" src="~/Content/mytemplate/js/bootstrap-datetimepicker.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var events = [];
+        var selectedEvent = null;
+        FetchEventAndRenderCalendar();
+        function FetchEventAndRenderCalendar() {
+            events = [];
+            $.ajax({
+                type: "GET",
+                url: "/home/GetEvents",
+                success: function (data) {
+                    $.each(data, function (i, v) {
+                        events.push({
+                            eventID: v.EventID,
+                            title: v.Subject,
+                            description: v.Description,
+                            start: moment(v.Start),
+                            end: v.End != null ? moment(v.End) : null,
+                            color: v.ThemeColor,
+                            allDay: v.IsFullDay
+                        });
+                    })
+
+                    GenerateCalender(events);
+                },
+                error: function (error) {
+                    alert('failed');
+                }
+            })
+        }
+
+        function GenerateCalender(events) {
+            $('#calender').fullCalendar('destroy');
+            $('#calender').fullCalendar({
+                contentHeight: 400,
+                defaultDate: new Date(),
+                timeFormat: 'h(:mm)a',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay,agenda'
+                },
+                eventLimit: true,
+                eventColor: '#378006',
+                events: events,
+                eventClick: function (calEvent, jsEvent, view) {
+                    selectedEvent = calEvent;
+                    $('#myModal #eventTitle').text(calEvent.title);
+                    var $description = $('<div/>');
+                    $description.append($('<p/>').html('<b>Start:</b>' + calEvent.start.format("DD-MMM-YYYY HH:mm a")));
+                    if (calEvent.end != null) {
+                        $description.append($('<p/>').html('<b>End:</b>' + calEvent.end.format("DD-MMM-YYYY HH:mm a")));
+                    }
+                    $description.append($('<p/>').html('<b>Description:</b>' + calEvent.description));
+                    $('#myModal #pDetails').empty().html($description);
+
+                    $('#myModal').modal();
+                },
+                selectable: true,
+                select: function (start, end) {
+                    selectedEvent = {
+                        eventID: 0,
+                        title: '',
+                        description: '',
+                        start: start,
+                        end: end,
+                        allDay: false,
+                        color: ''
+                    };
+                    openAddEditForm();
+                    $('#calendar').fullCalendar('unselect');
+                },
+                editable: true,
+                eventDrop: function (event) {
+                    var data = {
+                        EventID: event.eventID,
+                        Subject: event.title,
+                        Start: event.start.format('DD/MM/YYYY HH:mm A'),
+                        End: event.end != null ? event.end.format('DD/MM/YYYY HH:mm A') : null,
+                        Description: event.description,
+                        ThemeColor: event.color,
+                        IsFullDay: event.allDay
+                    };
+                    SaveEvent(data);
+                }
+            })
+        }
+
+        $('#btnEdit').click(function () {
+            //Open modal dialog for edit event
+            openAddEditForm();
+        })
+        $('#btnDelete').click(function () {
+            if (selectedEvent != null && confirm('Are you sure?')) {
+                $.ajax({
+                    type: "POST",
+                    url: '/home/DeleteEvent',
+                    data: { 'eventID': selectedEvent.eventID },
+                    success: function (data) {
+                        if (data.status) {
+                            //Refresh the calender
+                            FetchEventAndRenderCalendar();
+                            $('#myModal').modal('hide');
+                        }
+                    },
+                    error: function () {
+                        alert('Failed');
+                    }
+                })
+            }
+        })
+        $('#dtp1,#dtp2').datetimepicker({
+            format: 'DD/MM/YYYY HH:mm A'
+        });
+        $('#chkIsFullDay').change(function () {
+            if ($(this).is(':checked')) {
+                $('#divEndDate').hide();
+            }
+            else {
+                $('#divEndDate').show();
+            }
+        });
+        function openAddEditForm() {
+            if (selectedEvent != null) {
+                $('#hdEventID').val(selectedEvent.eventID);
+                $('#txtSubject').val(selectedEvent.title);
+                $('#txtStart').val(selectedEvent.start.format('DD/MM/YYYY HH:mm A'));
+                $('#chkIsFullDay').prop("checked", selectedEvent.allDay || false);
+                $('#chkIsFullDay').change();
+                $('#txtEnd').val(selectedEvent.end != null ? selectedEvent.end.format('DD/MM/YYYY HH:mm A') : '');
+                $('#txtDescription').val(selectedEvent.description);
+                $('#ddThemeColor').val(selectedEvent.color);
+            }
+            $('#myModal').modal('hide');
+            $('#myModalSave').modal();
+        }
+        $('#btnSave').click(function () {
+            //Validation/
+            if ($('#txtSubject').val().trim() == "") {
+                alert('Subject required');
+                return;
+            }
+            if ($('#txtStart').val().trim() == "") {
+                alert('Start date required');
+                return;
+            }
+            if ($('#chkIsFullDay').is(':checked') == false && $('#txtEnd').val().trim() == "") {
+                alert('End date required');
+                return;
+            }
+            else {
+                var startDate = moment($('#txtStart').val(), "DD/MM/YYYY HH:mm A").toDate();
+                var endDate = moment($('#txtEnd').val(), "DD/MM/YYYY HH:mm A").toDate();
+                if (startDate > endDate) {
+                    alert('Invalid end date');
+                    return;
+                }
+            }
+
+            var data = {
+                EventID: $('#hdEventID').val(),
+                Subject: $('#txtSubject').val().trim(),
+                Start: $('#txtStart').val().trim(),
+                End: $('#chkIsFullDay').is(':checked') ? null : $('#txtEnd').val().trim(),
+                Description: $('#txtDescription').val(),
+                ThemeColor: $('#ddThemeColor').val(),
+                isFullDay: $('#chkIsFullDay').is(':checked')
+            }
+            SaveEvent(data);
+            // call function for submit data to the server
+        })
+        function SaveEvent(data) {
+            $.ajax({
+                type: "POST",
+                url: '/home/SaveEvent',
+                data: data,
+                success: function (data) {
+                    if (data.status) {
+                        //Refresh the calender
+                        FetchEventAndRenderCalendar();
+                        $('#myModalSave').modal('hide');
+                    }
+                },
+                error: function () {
+                    alert('Failed');
+                }
+            })
+        }
+    })
+</script>
+
+
 
 </html>

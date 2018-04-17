@@ -76,35 +76,35 @@ namespace CYJ.Controllers
 
         public JsonResult GetEvents()
         {
-            using (cyjEntities1 dc = new cyjEntities1())
+            using (cyjdatabaseEntities dc = new cyjdatabaseEntities())
             {
-                var events = dc.Calendars.ToList();
+                var events = dc.CALENDARs.ToList();
                 return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
         [HttpPost]
-        public JsonResult SaveEvent(Calendar e)
+        public JsonResult SaveEvent(CALENDAR e)
         {
             var status = false;
-            using (cyjEntities1 dc = new cyjEntities1())
+            using (cyjdatabaseEntities dc = new cyjdatabaseEntities())
             {
-                if (e.EventID > 0)
+                if (e.eventID > 0)
                 {
                     //Update the event
-                    var v = dc.Calendars.Where(a => a.EventID == e.EventID).FirstOrDefault();
+                    var v = dc.CALENDARs.Where(a => a.eventID == e.eventID).FirstOrDefault();
                     if (v != null)
                     {
-                        v.Subject = e.Subject;
-                        v.Start = e.Start;
-                        v.End = e.End;
-                        v.Description = e.Description;
-                        v.isFullDay = e.isFullDay;
-                        v.ThemeColor = e.ThemeColor;
+                        v.eventHeader = e.eventHeader;
+                        v.eventStart = e.eventStart;
+                        v.eventEnd = e.eventEnd;
+                        v.eventDescription = e.eventDescription;
+                  
                     }
                 }
                 else
                 {
-                    dc.Calendars.Add(e);
+                    dc.CALENDARs.Add(e);
                 }
                 dc.SaveChanges();
                 status = true;
@@ -116,12 +116,12 @@ namespace CYJ.Controllers
         public JsonResult DeleteEvent(int eventID)
         {
             var status = false;
-            using (cyjEntities1 dc = new cyjEntities1())
+            using (cyjdatabaseEntities dc = new cyjdatabaseEntities())
             {
-                var v = dc.Calendars.Where(a => a.EventID == eventID).FirstOrDefault();
+                var v = dc.CALENDARs.Where(a => a.eventID == eventID).FirstOrDefault();
                 if (v != null)
                 {
-                    dc.Calendars.Remove(v);
+                    dc.CALENDARs.Remove(v);
                     dc.SaveChanges();
                     status = true;
                 }
