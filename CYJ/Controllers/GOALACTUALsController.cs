@@ -62,7 +62,7 @@ namespace CYJ.Controllers
         public ActionResult Create()
         {
             ViewBag.categoryID = new SelectList(db.CATEGORIES, "categoryID", "categoryName");
-            ViewBag.fiscalYearID = new SelectList(db.FISCALYEARS, "fiscalYearID", "fiscalYearID");
+            ViewBag.fiscalYearID = new SelectList(db.FISCALYEARS, "fiscalYearID", "fiscalYear1");
             ViewBag.quarteroptionID = new SelectList(db.QUARTEROPTIONS, "quarteroptionID", "quarteroptionName");
             ViewBag.subcategoryID = new SelectList(db.SUBCATEGORIES, "subcategoryID", "subcategoryName");
             ViewBag.teamID = new SelectList(db.TEAMS, "teamID", "teamName");
@@ -83,7 +83,7 @@ namespace CYJ.Controllers
             }
 
             ViewBag.categoryID = new SelectList(db.CATEGORIES, "categoryID", "categoryName", gOALACTUAL.categoryID);
-            ViewBag.fiscalYearID = new SelectList(db.FISCALYEARS, "fiscalYearID", "fiscalYearID", gOALACTUAL.fiscalYearID);
+            ViewBag.fiscalYearID = new SelectList(db.FISCALYEARS, "fiscalYearID", "fiscalYear1", gOALACTUAL.fiscalYearID);
             ViewBag.quarteroptionID = new SelectList(db.QUARTEROPTIONS, "quarteroptionID", "quarteroptionName", gOALACTUAL.quarteroptionID);
             ViewBag.subcategoryID = new SelectList(db.SUBCATEGORIES, "subcategoryID", "subcategoryName", gOALACTUAL.subcategoryID);
             ViewBag.teamID = new SelectList(db.TEAMS, "teamID", "teamName", gOALACTUAL.teamID);
@@ -105,7 +105,7 @@ namespace CYJ.Controllers
                 return HttpNotFound();
             }
             ViewBag.categoryID = new SelectList(db.CATEGORIES, "categoryID", "categoryName", gOALACTUAL.categoryID);
-            ViewBag.fiscalYearID = new SelectList(db.FISCALYEARS, "fiscalYearID", "fiscalYearID", gOALACTUAL.fiscalYearID);
+            ViewBag.fiscalYearID = new SelectList(db.FISCALYEARS, "fiscalYearID", "fiscalYear1", gOALACTUAL.fiscalYearID);
             ViewBag.quarteroptionID = new SelectList(db.QUARTEROPTIONS, "quarteroptionID", "quarteroptionName", gOALACTUAL.quarteroptionID);
             ViewBag.subcategoryID = new SelectList(db.SUBCATEGORIES, "subcategoryID", "subcategoryName", gOALACTUAL.subcategoryID);
             ViewBag.teamID = new SelectList(db.TEAMS, "teamID", "teamName", gOALACTUAL.teamID);
@@ -126,7 +126,7 @@ namespace CYJ.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.categoryID = new SelectList(db.CATEGORIES, "categoryID", "categoryName", gOALACTUAL.categoryID);
-            ViewBag.fiscalYearID = new SelectList(db.FISCALYEARS, "fiscalYearID", "fiscalYearID", gOALACTUAL.fiscalYearID);
+            ViewBag.fiscalYearID = new SelectList(db.FISCALYEARS, "fiscalYearID", "fiscalYear1", gOALACTUAL.fiscalYearID);
             ViewBag.quarteroptionID = new SelectList(db.QUARTEROPTIONS, "quarteroptionID", "quarteroptionName", gOALACTUAL.quarteroptionID);
             ViewBag.subcategoryID = new SelectList(db.SUBCATEGORIES, "subcategoryID", "subcategoryName", gOALACTUAL.subcategoryID);
             ViewBag.teamID = new SelectList(db.TEAMS, "teamID", "teamName", gOALACTUAL.teamID);
